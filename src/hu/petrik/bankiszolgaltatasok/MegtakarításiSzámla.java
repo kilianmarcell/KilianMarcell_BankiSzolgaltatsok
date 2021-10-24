@@ -20,6 +20,8 @@ public class MegtakarításiSzámla extends Számla {
         if (Kivesz(getKamat())) {
             setKamat(getEgyenleg() * kamat);
             return getKamat();
+        } else {
+            return getKamat();
         }
     }
 }
