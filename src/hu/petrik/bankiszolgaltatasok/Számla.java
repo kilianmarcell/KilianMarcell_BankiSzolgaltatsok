@@ -16,7 +16,11 @@ public class Számla extends BankiSzolgáltatás {
         return egyenleg;
     }
 
-    public boolean Kivesz(double összeg) {
-        return true;
+    public boolean Kivesz(double osszeg) {
+        if (getEgyenleg() - osszeg >= 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
