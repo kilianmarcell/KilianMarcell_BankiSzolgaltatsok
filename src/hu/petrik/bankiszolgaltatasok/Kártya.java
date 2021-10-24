@@ -4,7 +4,7 @@ public class Kártya extends BankiSzolgáltatás {
     private String kartyaSzam;
     private Számla s;
 
-    public Kártya(Tulajdonos t, String kartyaSzam, Számla s) {
+    public Kártya(Tulajdonos t, String kartyaSzam) {
         super(t);
         this.kartyaSzam = kartyaSzam;
         this.s = s;
