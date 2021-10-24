@@ -9,6 +9,6 @@ public class Bank {
 
     public void Számlanyitás(Tulajdonos t, double hitelKeret) {
         HitelSzámla h = new HitelSzámla(t, hitelKeret);
-        MegtakarításiSzámla m = new MegtakarításiSzámla(t);
+        MegtakarításiSzámla m = new MegtakarításiSzámla(t, 1);
     }
 }

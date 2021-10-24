@@ -17,15 +17,18 @@ public class Számla extends BankiSzolgáltatás {
     }
 
     public boolean Kivesz(double osszeg) {
-        HitelSzámla h = new HitelSzámla(this.getT(), getEgyenleg());
-        if (getEgyenleg() - osszeg >= -1 * h.getHitelkeretOsszeg()) {
+        HitelSzámla h = new HitelSzámla(this.getT(), getEgyenleg()); //TODO: getEgyenleg() javítása
+        if (egyenleg - osszeg > -1 * h.getHitelkeretOsszeg()) {
+            egyenleg -= osszeg;
             return true;
         } else {
-            return false;
+             return false;
         }
     }
 
-    public void ÚjKártya(String leendoKartyaszam) {
-        Kártya k = new Kártya(super.getT(), leendoKartyaszam);
+    public Kártya ÚjKártya(String leendoKartyaszam) {
+        Számla s = new Számla(super.getT());
+        Kártya k = new Kártya(this.getT(), s, leendoKartyaszam);
+        return k;
     }
 }

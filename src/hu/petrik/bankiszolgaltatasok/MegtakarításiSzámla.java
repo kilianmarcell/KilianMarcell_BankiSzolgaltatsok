@@ -1,27 +1,28 @@
 package hu.petrik.bankiszolgaltatasok;
 
 public class MegtakarításiSzámla extends Számla {
-    private static double kamat;
+    private double kamatMertek;
+    private static double kamatAlap;
 
-    public MegtakarításiSzámla(Tulajdonos t) {
+    public MegtakarításiSzámla(Tulajdonos t, double kamatAlap) {
         super(t);
-        this.kamat = 1;
+        this.kamatMertek = kamatAlap;
     }
 
-    public double getKamat() {
-        return kamat;
+    public double getKamatMertek() {
+        return kamatMertek;
     }
 
-    public void setKamat(double kamat) {
-        this.kamat = kamat;
+    public void setKamatMertek(double kamatMertek) {
+        this.kamatMertek = kamatMertek;
     }
 
     public double Kamatjóváírás() {
-        if (Kivesz(getKamat())) {
-            setKamat(getEgyenleg() * kamat);
-            return getKamat();
+        if (Kivesz(this.kamatMertek)) {
+            setKamatMertek(this.kamatMertek * this.kamatAlap);
+            return getKamatMertek();
         } else {
-            return getKamat();
+            return getKamatMertek();
         }
     }
 }

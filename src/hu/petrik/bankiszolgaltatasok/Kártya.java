@@ -1,13 +1,13 @@
 package hu.petrik.bankiszolgaltatasok;
 
 public class Kártya extends BankiSzolgáltatás {
-    private String kartyaSzam;
     private Számla s;
+    private String kartyaSzam;
 
-    public Kártya(Tulajdonos t, String kartyaSzam) {
+    public Kártya(Tulajdonos t, Számla s, String kartyaSzam) {
         super(t);
-        this.kartyaSzam = kartyaSzam;
         this.s = s;
+        this.kartyaSzam = kartyaSzam;
     }
 
     public String getKartyaSzam() {
@@ -15,6 +15,7 @@ public class Kártya extends BankiSzolgáltatás {
     }
 
     public boolean Vásárlás(double osszeg) {
+        Számla s = new Számla(super.getT());
         if (s.Kivesz(osszeg)) {
             return true;
         } else {
