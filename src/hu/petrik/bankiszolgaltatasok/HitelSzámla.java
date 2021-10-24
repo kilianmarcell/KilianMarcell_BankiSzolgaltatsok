@@ -8,10 +8,7 @@ public class HitelSzámla extends Számla {
         this.hitelkeretOsszeg = hitelkeretOsszeg;
     }
 
-    public double getHitelkeretOsszeg(double kiveszOsszeg) {
-        if (Kivesz(kiveszOsszeg)) {
-            return getEgyenleg() - kiveszOsszeg;
-        }
+    public double getHitelkeretOsszeg() {
         return hitelkeretOsszeg;
     }
 }

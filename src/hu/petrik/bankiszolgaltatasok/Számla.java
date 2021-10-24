@@ -17,7 +17,8 @@ public class Számla extends BankiSzolgáltatás {
     }
 
     public boolean Kivesz(double osszeg) {
-        if (getEgyenleg() - osszeg >= 0) {
+        HitelSzámla h = new HitelSzámla(this.getT(), getEgyenleg());
+        if (getEgyenleg() - osszeg >= -1 * h.getHitelkeretOsszeg()) {
             return true;
         } else {
             return false;
